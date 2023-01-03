@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+
+
+/*|| RESET*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: "Space Mono";
+    font-weight: 700;
+    background-color: rgb(191, 248, 229);
+}
+
+form, input, button{
+    font-family: inherit;
+}
+
+input:focus{
+    outline: none;
+}
+
+
+h2, h3, p:hover{
+    cursor:default;
+}
+
+
+/*|| VARIABLES*/
+:root{
+    --border-radius: 1rem;
+    --border-radius-button: 0.25rem;
+    --fs-input: 1.5rem;
+    --margin-button: 0.4rem;
+    --section-spacing: 2rem;
+
+
+    /*|| COLORS*/
+
+    --bg-color: whitesmoke;
+    --bg-color-secoundary: hsl(183, 100%, 15%);
+    --bg-color-input: rgb(226, 235, 234);
+    --bg-color-active: hsl(172, 67%, 45%);
+    --sectionHeader-color: rgb(133, 173, 168);
+    --percentage-color: #fff;
+    --percentage-color-active: hsl(172, 68%, 75%);
+    --error-color: rgb(221, 125, 96);
+}
+
+input{
+    border: none;
+}
+
+/*|| UTILITY CLASSES*/
+
+.hidden{
+    display: none;
+}
+
+.card{
+    display: flex;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.nowrap{
+    white-space: nowrap;
+}
+
+/*|| MAIN STYLES*/
+
+
+
+.tipCalculator{
+    width: 22rem;
+    height:auto;
+    display: flex;
+    flex-flow: column;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.inputHeading{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.sectionHeader{
+    font-size: 1rem;
+    color: var(--sectionHeader-color);
+    margin-right: 0;
+}
+
+.errorMessage{
+    color: var(--error-color);
+    width: auto;
+    font-size: .8rem;
+}
+
+.inputForm{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    padding: 0.3rem 1rem 0.2rem;
+    border-radius: var(--border-radius-button);
+    background-color: var(--bg-color-input);
+    margin-bottom: var(--section-spacing);
+}
+
+.inputForm input{
+    background-color: inherit;
+    text-align: end;
+    width: 100%;
+    color: var(--bg-color-secoundary);
+    font-size: var(--fs-input);
+}
+
+.inputForm  label{
+    line-height: 0;
+}
+
+.tipSelection{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: var(--section-spacing);
+}
+
+.tipSelectionButton{
+    background-color: var(--bg-color-secoundary);
+    margin: var(--margin-button);
+    width: calc(50% - var(--margin-button)*2);
+    padding: 0.2rem;
+    border: none;
+    border-radius: var(--border-radius-button);
+    color: var(--percentage-color);
+    font-size: var(--fs-input);
+}
+
+.tipSelection form{
+    margin: var(--margin-button);
+    width: calc(50% - var(--margin-button)*2);
+    padding: 0.2rem 1rem;
+    background-color: var(--bg-color-input);
+    border-radius: var(--border-radius-button);
+}
+
+.tipSelectionInput{
+    text-align: end;
+    border: none;
+    background-color: inherit;
+    width: 100%;
+    color: var(--bg-color-secoundary);
+    font-size: var(--fs-input);
+}
+
+.totals{
+    background-color: var(--bg-color-secoundary);
+    display: flex;
+    flex-flow: column;
+    padding: 1rem;
+}
+
+.totals__summary{
+    display: grid;
+    grid-template-areas: 
+    "a a a a a c c"
+    "b b b b b c c";
+    position: relative;
+   
+}
+
+.totals__summary h2{
+    grid-area: a;
+    color: var(--percentage-color);
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.totals__summary p{
+    grid-area: b;
+    color: var(--sectionHeader-color);
+    font-size: 0.8rem;
+    font-weight: 400;
+    
+}
+
+.totals__summary h3{
+    grid-area: c;
+    justify-self: right;
+    color: var(--bg-color-active);
+    text-align: end;
+    position:absolute;
+    bottom: 0;
+    font-size: 1.8rem;
+}
+
+
+.resetBTN{
+    margin-top: 4rem;
+    height: 3rem;
+    border-radius: var(--border-radius-button);
+    border: none;
+    background: var(--bg-color-active);
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: var(--bg-color-secoundary);
+    display: absolute;
+    bottom: 0;
+}
+
+/*|| ACTIVE STATES*/
+
+.selected{
+    background-color: var(--bg-color-active);
+    color: var(--bg-color-secoundary);
+}
+
+form:hover{
+    outline: 3px solid var(--percentage-color-active);
+    cursor: pointer;
+}
+
+input:hover{
+    cursor:pointer;
+}
+
+.inputForm:has(input:invalid){
+    outline: 3px solid var(--error-color)
+}
+
+.resetBTN:hover{
+    background-color: var(--percentage-color-active);
+}
+
+.tipSelectionButton:hover{
+    background-color: var(--percentage-color-active);
+    color: var(--bg-color-secoundary);
+    cursor: pointer;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;background-color: rgb(221, 173, 134);
+    color: var(--active-color);
+}
+
+footer a{
+    text-decoration: none;
+    color: rgb(177, 52, 52);
+}
+
+footer a:hover, footer a:active{
+    color: #fff;
+}
+
+@media screen and (min-width: 1000px){
+    .tipCalculator{
+        flex-direction: row;
+        width: 800px;
+        justify-content: space-evenly;
+    }
+    
+    .totals{
+        width: 22rem;
+        height:350px;
+        padding: 2rem;
+    }
+
+    .inputContainer{
+        width: 25rem;
+        min-height: 350px;
+        margin-right: 1rem;
+    }
+
+    .resetBTN{
+        margin-top: auto;
+    }
+
+    .tipSelectionButton, .tipSelection form{
+        width: calc(33% - var(--margin-button)*2);
+    }
+}
