@@ -73,6 +73,13 @@ input{
 /*|| MAIN STYLES*/
 
 
+body{
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .tipCalculator{
     width: 22rem;
@@ -81,8 +88,6 @@ input{
     flex-flow: column;
     padding: 1rem;
     background-color: var(--bg-color);
-    margin: auto;
-    margin-top: 2rem;
 }
 
 .inputHeading{
